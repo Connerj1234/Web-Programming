@@ -1,0 +1,19 @@
+body { background: chocolate;}
+
+.arial { font-family: Arial, Helvetica, sans-serif; }
+.treb  { font-family: "Trebuchet MS", Arial, sans-serif; }
+.bold  { font-weight: bold; }
+.italic{ font-style: italic; }
+.khaki { color: khaki; }
+.mocca { color: moccasin; }
+.gold  { color: gold; }
+.ivory { color: ivory; }
+.mlr2  { margin-left: 2cm; margin-right: 2cm; }
+.mlr4  { margin-left: 4cm; margin-right: 4cm; }
+
+.artist { font-size: 14pt; }
+.title  { font-size: 14pt; }
+.album  { font-size: 12pt; }
+.year   { font-size: 12pt; }
+.verse  { font-size: 14pt; }
+.chorus { font-size: 14pt; }
