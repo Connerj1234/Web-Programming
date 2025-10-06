@@ -1,0 +1,51 @@
+body {
+   font-family: Roboto, Helvetica, sans-serif;
+   text-align: center;
+}
+
+.x {
+   color: red;
+}
+
+.o {
+   color: blue;
+ }
+
+#board {
+   font: 85px arial, sans-serif;
+   margin: 3px;
+
+   /* Your solution goes here */
+   display: grid;
+   grid-template-columns: 100px 100px 100px;
+   grid-template-rows: 100px 100px 100px;
+   grid-gap: 10px;
+   justify-content: center;
+}
+
+#board > div {
+   border: 1px solid LightSkyBlue;
+   text-align: center;
+}
+
+#board2 {
+    width: 330px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font: 85px arial, sans-serif;
+  }
+
+#board2 .cell {
+    width: 100px;
+    height: 100px;
+    border: 1px solid LightSkyBlue;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

@@ -1,0 +1,162 @@
+<!-- journal.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Conner's Journal</title>
+  <style>
+body {
+  margin: 0;
+  color: #034a52;
+}
+
+#content-area {
+  width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.red-box {
+  background-color: #A8F0F0;
+  padding: 16px 24px;
+  text-align: right;
+}
+.red-box h1 {
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.1;
+}
+#tagline {
+  margin: 4px 0 0 0;
+  font-size: 14pt;
+  border: none;
+}
+
+.green-box {
+  float: left;
+  width: 240px;
+  background: white;
+  border: 10px solid green;
+  padding: 14px 16px;
+  margin-right: 24px;
+}
+#friends h2 {
+  margin: 0 0 8px 0;
+  font-size: 32px;
+}
+#friends ul {
+  padding-left: 22px;
+  margin: 0;
+}
+
+#entries {
+  overflow: hidden;
+}
+
+.blue-box {
+  border: 4px solid #C2E9E9;
+  background-color: #E8FBFB;
+  padding: 5px;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+.purple-box {
+  margin: 0 0 8px 0;
+  font-size: 34px;
+  color: #017c85;
+  font-weight: 700;
+}
+.purple-underline {
+  display: inline-block;
+  border-bottom: 2px dashed blue;
+}
+
+.entry-img {
+  float: right;
+  max-width: 180px;
+  height: auto;
+  margin: 4px 0 8px 12px;
+}
+
+#img2 {
+    border: 2px solid black;
+  }
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+  </style>
+</head>
+<body>
+  <!-- RED BOX -->
+  <header id="masthead" class="red-box">
+    <h1>Conner's Gucci Journal</h1>
+    <p id="tagline">So fresh and so clean</p>
+  </header>
+
+  <main id="content-area" class="clearfix">
+    <!-- GREEN BOX -->
+    <aside id="friends" class="green-box">
+      <h2>Friends</h2>
+      <ul>
+        <li>190m</li>
+        <li>Buddies</li>
+        <li>Big Will</li>
+        <li>Conan the Librarian</li>
+      </ul>
+    </aside>
+
+    <!-- JOURNAL ENTRIES COLUMN -->
+    <section id="entries">
+      <article class="entry blue-box">
+        <h3 class="purple-box">
+          <span class="date purple-underline">09/22/2025</span>:
+          <span class="title-text">Spatulas</span>
+        </h3>
+
+        <img
+          class="entry-img"
+          src="spatula.gif"
+          alt="Metal spatula illustration"
+        />
+
+        <p>
+          Yesterday I went to the store and got some much-needed spatulas.
+          What better way to say I love myself than to buy myself a spatula?
+          Should I grab a bottle or wine or 6 pack of beer, maybe even some IPA.
+          What are you thinking? Bruh hey Bruh are you going to decide or what.?
+        </p>
+      </article>
+
+      <article class="entry blue-box">
+        <h3 class="purple-box">
+          <span class="date purple-underline">09/22/2025</span>:
+          <span class="title-text">Cookie Monster Cupcakes</span>
+        </h3>
+
+        <img
+          class="entry-img"
+          id="img2"
+          src="cookiemonster.jpg"
+          alt="Cookie Monster cupcakes"
+        />
+
+        <p>
+          My favourite cartoon character is Cookie Monster, and my favourite
+          dessert is cupcakes, so Cookie Monster cupcakes are the best of both
+          worlds.
+        </p>
+        <p>
+          Did you know? Cookie Monster once said, “Sometimes me think what is
+          love, and then me think love is what last cookie is for. Me give up
+          the last cookie for you.” I wonder if the same applies for cupcakes?
+          If so, I do not think I can ever love anyone.
+        </p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

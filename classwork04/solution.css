@@ -1,0 +1,52 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 1rem 4rem;
+    color: black;
+  }
+
+  .page-header {
+    text-align: center;
+    margin: 1rem 0 0.5rem;
+  }
+
+  p {
+    max-width: 70ch; margin: 0.5rem auto;
+  }
+
+  .content {
+    width: 70%;
+    margin: 2rem auto;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .box {
+    padding: 2em;
+    margin: 2em 0;
+    border: 4px dashed red;
+  }
+
+  .left  { flex-basis: 33%; }
+  .right { flex-basis: 67%; }
+
+  .pup {
+    float: right;
+    width: 200px;
+    height: auto;
+    margin: 0 0 1rem 1rem;
+    display: block;
+  }
+
+  .clearme { clear: both; }
+
+  .fixed-note {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: 5px;
+    background: #fff;
+    padding: 0.5rem 0;
+  }
