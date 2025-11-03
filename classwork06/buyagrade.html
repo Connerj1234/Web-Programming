@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Buy Your Way to a Better Education</title>
+  <link href="buyagrade.css" rel="stylesheet" type="text/css" />
+  <style>
+    body { font-family: Georgia, 'Times New Roman', Times, serif; margin: 2rem; }
+    fieldset { margin-bottom: 1rem; }
+    label { display:inline-block; min-width: 140px; }
+    .actions { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Buy Your Way to a Better Education</h1>
+
+  <p>Welcome, valued student. Complete the totally-legit form below to secure your 4.0!</p>
+  <hr>
+
+  <form action="sucker.php" method="post">
+    <fieldset>
+      <legend>Student Info</legend>
+      <p><label for="name">Name</label>
+         <input id="name" name="name" type="text" required></p>
+
+      <p><label for="section">Section</label>
+        <select id="section" name="section" required>
+          <option value="">-- choose --</option>
+          <option>MA</option><option>MB</option><option>MC</option><option>MD</option>
+          <option>ME</option><option>MF</option><option>MG</option><option>MH</option>
+        </select>
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Payment</legend>
+      <p><label for="card">Credit Card</label>
+         <input id="card" name="card" type="text" placeholder="####-####-####-####" required></p>
+
+      <p>
+        <label>Card Type</label>
+        <label><input name="cardtype" type="radio" value="visa" required> Visa</label>
+        <label><input name="cardtype" type="radio" value="mastercard"> MasterCard</label>
+      </p>
+    </fieldset>
+
+    <div class="actions">
+      <button type="submit">I am a giant sucker.</button>
+    </div>
+  </form>
+</body>
+</html>

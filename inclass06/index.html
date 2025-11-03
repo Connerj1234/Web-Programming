@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .radio-item, .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        button, input[type="submit"], input[type="reset"] {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        input[type="submit"] {
+            background: #27ae60;
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background: #219a52;
+            transform: translateY(-2px);
+        }
+
+        input[type="reset"] {
+            background: #e74c3c;
+            color: white;
+        }
+
+        input[type="reset"]:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-note {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .container {
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Student Registration</h1>
+            <p>Complete your academic profile for the upcoming semester</p>
+        </div>
+
+        <div class="form-container">
+            <div class="form-note">
+                <strong>Note:</strong> Fields marked with <span class="required">*</span> are required.
+            </div>
+
+            <form action="process_registration.php" method="post">
+                <!-- Personal Information -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first_name">First Name <span class="required">*</span></label>
+                        <input type="text" id="first_name" name="first_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name <span class="required">*</span></label>
+                        <input type="text" id="last_name" name="last_name" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="student_email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="student_email" name="student_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student_id">Student ID <span class="required">*</span></label>
+                        <input type="text" id="student_id" name="student_id" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="birth_date">Date of Birth <span class="required">*</span></label>
+                        <input type="date" id="birth_date" name="birth_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="gender_male" name="gender" value="Male" required>
+                                <label for="gender_male">Male</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="gender_female" name="gender" value="Female">
+                                <label for="gender_female">Female</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="gender_other" name="gender" value="Other">
+                                <label for="gender_other">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Information -->
+                <div class="form-group">
+                    <label for="major">Major <span class="required">*</span></label>
+                    <select id="major" name="major" required>
+                        <option value="">Select your major</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Business Administration">Business Administration</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Psychology">Psychology</option>
+                        <option value="Biology">Biology</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Academic Level <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="level_freshman" name="academic_level" value="Freshman" required>
+                            <label for="level_freshman">Freshman</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="level_sophomore" name="academic_level" value="Sophomore">
+                            <label for="level_sophomore">Sophomore</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="level_junior" name="academic_level" value="Junior">
+                            <label for="level_junior">Junior</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="level_senior" name="academic_level" value="Senior">
+                            <label for="level_senior">Senior</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Interested Courses (Select multiple)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course_web" name="interested_courses[]" value="Web Development">
+                            <label for="course_web">Web Development</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course_data" name="interested_courses[]" value="Data Science">
+                            <label for="course_data">Data Science</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course_ai" name="interested_courses[]" value="Artificial Intelligence">
+                            <label for="course_ai">Artificial Intelligence</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="course_network" name="interested_courses[]" value="Computer Networks">
+                            <label for="course_network">Computer Networks</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="campus">Preferred Campus</label>
+                    <select id="campus" name="campus">
+                        <option value="Main Campus">Main Campus</option>
+                        <option value="Downtown Campus">Downtown Campus</option>
+                        <option value="Online">Online</option>
+                    </select>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="form-group">
+                    <label for="comments">Additional Comments or Questions</label>
+                    <textarea id="comments" name="comments" rows="4" placeholder="Tell us about your academic goals or any special requirements..."></textarea>
+                </div>
+
+                <!-- Hidden Field -->
+                <input type="hidden" name="form_submitted" value="true">
+
+                <!-- Submit Buttons -->
+                <div class="button-group">
+                    <input type="reset" value="Clear Form">
+                    <input type="submit" value="Register Now">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Assignment Submission</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #faf7f0;
+      margin: 40px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #2b3a67;
+    }
+    .step-block {
+      margin-bottom: 35px;
+      border-left: 4px solid #2b3a67;
+      padding-left: 15px;
+    }
+    .answer {
+      background-color: #f5f5f5;
+      border: 1px dashed #bbb;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 10px;
+      color: #777;
+    }
+    .screenshot {
+      background-color: #f5f5f5;
+      border: 1px dashed #bbb;
+      border-radius: 6px;
+      margin-top: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+    .screenshot img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+  <h1>Assignment Submission</h1>
+  <p><strong>Name:</strong> Conner Jamison</p>
+
+  <!-- Step Blocks -->
+
+  <div class="step-block">
+    <h2>Step 3</h2>
+    <div class="answer">Every time you refresh, it updates the number of times you have visited the site.</div>
+    <div class="screenshot"><img src="Screenshot 2025-11-03 at 3.05.14 PM.png""></div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 4</h2>
+    <div class="answer">Heres a screenshot of the cookies set on my browser.</div>
+    <div class="screenshot"><img src="Screenshot 2025-11-03 at 3.12.58 PM.png"></div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 5</h2>
+    <div class="answer">Heres what happens after i delete the cookies for this page.</div>
+    <div class="screenshot"><img src="Screenshot 2025-11-03 at 3.15.47 PM.png"></div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 6</h2>
+    <div class="answer">I would estimate around 10-20% of my web activity store cookies. </div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 7</h2>
+    <div class="answer">Nothing major happens.</div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 8: PHP Code</h2>
+    <div class="answer">Heres the code and what it looks like after updating the file.</div>
+    <div class="screenshot"><img src="Screenshot 2025-11-03 at 3.37.44 PM.png"></div>
+    <div class="screenshot"><img src="Screenshot 2025-11-03 at 3.29.14 PM.png"></div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 8: URL</h2>
+    <div class="answer"> <a href="https://codd.cs.gsu.edu/~cjamison6/in_class_07/session-cookies-1.php" target="_blank">https://codd.cs.gsu.edu/~cjamison6/in_class_07/session-cookies-1.php</a></div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 9</h2>
+    <div class="answer">This is what happens when clicking on the link</div>
+    <div class="screenshot"><img src="Screenshot 2025-11-03 at 3.41.03 PM.png"></div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 10</h2>
+    <div class="answer">It wouldnt let me log in until I supplied the correct password.</div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 11</h2>
+    <div class="answer">In session-cookies-1.php, cookies store visit count and last visit date directly in the browser. In session-cookies-2.php and session-cookies-3.php, session data are stored on the server, and the browser keeps only the PHPSESSID cookie to identify that session.
+
+        After adding setcookie("random_number", rand(1,100), time()+(86400*30), "/");, I saw a new cookie appear in the browser’s cookie list. This cookie changes each time the page reloads, showing that it’s stored and updated by the browser independently from the session.
+
+        The connection is that sessions rely on a special cookie (PHPSESSID) to identify users, but regular cookies (like random_number) can exist separately and are handled entirely by the browser.</div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 12</h2>
+    <div class="answer">In the cookie listing, I found a cookie named PHPSESSID</div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 13</h2>
+    <div class="answer">Yes, it now allows me to log in properly.</div>
+    <div class="screenshot"><img src="Screenshot 2025-11-03 at 3.49.40 PM.png"></div>
+  </div>
+
+  <div class="step-block">
+    <h2>Step 14</h2>
+    <div class="answer">The programs use session_start() and then store a boolean and a timestamp in $_SESSION when a correct password is provided. On future requests the page reads $_SESSION['is_authed'] and $_SESSION['authed_at'] to decide whether authentication happened recently. The browser keeps only the PHPSESSID cookie while the real session variables remain on the server. If the session expires or is destroyed, the site no longer considers the user authenticated.</div>
+  </div>
+
+</div>
+
+</body>
+</html>
