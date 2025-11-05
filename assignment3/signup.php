@@ -4,7 +4,7 @@ page_header("NerdLuv - Sign Up");
 ?>
 <h1>New User Signup</h1>
 
-<form action="signup-submit.php" method="post">
+<form action="signup-submit.php" method="post" novalidate>
   <fieldset>
     <legend>New User Signup</legend>
 

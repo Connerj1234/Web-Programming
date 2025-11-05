@@ -4,7 +4,7 @@ page_header("NerdLuv - Matches");
 ?>
 <h1>View Matches</h1>
 
-<form action="matches-submit.php" method="get">
+<form action="matches-submit.php" method="get" novalidate>
   <fieldset>
     <legend>Returning User:</legend>
 

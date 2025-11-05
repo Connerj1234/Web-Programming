@@ -1,9 +1,4 @@
 <?php
-/*
- * common.php
- * Shared page header/footer and small helpers for NerdLuv.
- * Uses nerdluv.css (provided).
- */
 
 function page_header(string $title = "NerdLuv") { ?>
   <!DOCTYPE html>
@@ -15,8 +10,9 @@ function page_header(string $title = "NerdLuv") { ?>
   </head>
   <body>
     <div id="bannerarea">
-      <a href="index.php"><img src="user.jpg" alt="NerdLuv" style="width:64px;vertical-align:middle;margin-right:8px;"></a>
-      <h1 style="display:inline;">NerdLuv</h1>
+      <a href="index.php">
+        <img src="Screenshot 2025-11-05 at 4.59.48 PM.png" alt="NerdLuv" style="width:220px;vertical-align:middle;margin-right:8px;">
+      </a>
     </div>
 <?php }
 
@@ -29,7 +25,20 @@ function page_footer() { ?>
   </html>
 <?php }
 
-/* Read all profiles from singles.txt as arrays with named keys */
+/* Error page */
+function error_page(string $message = "We're sorry. You submitted invalid user information. Please go back and try again.") {
+  page_header("NerdLuv - Error");
+  ?>
+  <h1>Error! Invalid data.</h1>
+  <p><?= htmlspecialchars($message) ?></p>
+  <p>This page is for single nerds to meet and date each other. Type in your personal information and wait for the nerdly luv to begin. Thank you for using our site.</p>
+  <p><a href="index.php">Back to front page</a></p>
+  <?php
+  page_footer();
+  exit;
+}
+
+/*  File I/O */
 function read_profiles(string $path = "singles.txt"): array {
   if (!is_readable($path)) return [];
   $rows = array_filter(array_map("trim", file($path, FILE_IGNORE_NEW_LINES)));
@@ -52,7 +61,6 @@ function read_profiles(string $path = "singles.txt"): array {
   return $profiles;
 }
 
-/* Find a profile by exact name (assumed to exist per spec) */
 function find_profile_by_name(array $profiles, string $name): ?array {
   foreach ($profiles as $p) {
     if (strcasecmp($p["name"], $name) === 0) return $p;
@@ -60,7 +68,34 @@ function find_profile_by_name(array $profiles, string $name): ?array {
   return null;
 }
 
-/* personality match: share at least one same-index letter */
+function profiles_contains_name(array $profiles, string $name): bool {
+  return find_profile_by_name($profiles, $name) !== null;
+}
+
+/*  Validation helpers */
+function is_valid_name(?string $s): bool {
+  return is_string($s) && preg_match('/\S/u', $s) === 1;
+}
+function is_valid_gender(?string $s): bool {
+  return in_array($s, ["M","F"], true);
+}
+function is_valid_age(?string $s): bool {
+  if (!is_string($s) || preg_match('/^\d{1,2}$/', $s) !== 1) return false;
+  $n = (int)$s;
+  return $n >= 0 && $n <= 99;
+}
+function is_valid_ptype(?string $s): bool {
+  return is_string($s) && preg_match('/^[IE][NS][FT][JP]$/i', $s) === 1;
+}
+function is_valid_os(?string $s): bool {
+  return in_array($s, ["Windows","Mac OS X","Linux"], true);
+}
+function is_valid_range(?string $min, ?string $max): bool {
+  if (!is_valid_age($min) || !is_valid_age($max)) return false;
+  return (int)$min <= (int)$max;
+}
+
+/*  Matching logic  */
 function personality_overlap(string $a, string $b): bool {
   $a = strtoupper($a);
   $b = strtoupper($b);
@@ -71,7 +106,6 @@ function personality_overlap(string $a, string $b): bool {
   return false;
 }
 
-/* Determine if $other is a match for $me according to assignment rules */
 function is_match(array $me, array $other): bool {
   if ($me["gender"] === $other["gender"]) return false;
   if (!($other["age"] >= $me["min"] && $other["age"] <= $me["max"])) return false;
@@ -81,11 +115,10 @@ function is_match(array $me, array $other): bool {
   return true;
 }
 
-/* Render one match block */
 function render_match(array $p) { ?>
   <div class="match">
     <p>
-      <img src="user.jpg" alt="User" />
+      <img src="Screenshot 2025-11-05 at 5.06.03 PM.png" alt="User" />
       <?= htmlspecialchars($p["name"]) ?>
     </p>
     <ul>
