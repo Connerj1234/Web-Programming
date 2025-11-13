@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CW07 – Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 40px;
+        }
+
+        .form-box {
+            border: 1px solid #ccc;
+            padding: 15px 25px 25px 25px;
+            display: inline-block;
+        }
+
+        label {
+            display: inline-block;
+            width: 90px;
+        }
+
+        input[type="text"] {
+            width: 180px;
+        }
+
+        .error-text {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 4px;
+        }
+
+        #resultBox {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Simple User Form</h2>
+
+<div class="form-box">
+    <!-- error messages (red text) -->
+    <div id="idError" class="error-text"></div>
+    <div>
+        <label for="userId">ID:</label>
+        <input type="text" id="userId">
+    </div>
+
+    <div id="firstNameError" class="error-text"></div>
+    <div>
+        <label for="firstName">FirstName:</label>
+        <input type="text" id="firstName">
+    </div>
+
+    <div id="lastNameError" class="error-text"></div>
+    <div>
+        <label for="lastName">LastName:</label>
+        <input type="text" id="lastName">
+    </div>
+
+    <div style="margin-top:10px;">
+        <button id="addBtn" type="button" onclick="validateAndDisplay()">Add</button>
+    </div>
+
+    <!-- where successful results will be shown -->
+    <div id="resultBox"></div>
+</div>
+
+<script>
+    function validateAndDisplay() {
+        // grab input elements
+        var idField = document.getElementById("userId");
+        var firstField = document.getElementById("firstName");
+        var lastField = document.getElementById("lastName");
+
+        // trim values
+        var idVal = idField.value.trim();
+        var firstVal = firstField.value.trim();
+        var lastVal = lastField.value.trim();
+
+        // clear previous error messages and styles
+        document.getElementById("idError").innerHTML = "";
+        document.getElementById("firstNameError").innerHTML = "";
+        document.getElementById("lastNameError").innerHTML = "";
+        idField.style.color = "black";
+        firstField.style.color = "black";
+        lastField.style.color = "black";
+
+        // collect error names for alert
+        var missingFields = [];
+
+        if (idVal === "") {
+            missingFields.push("ID");
+            document.getElementById("idError").innerHTML = "Please Enter an ID";
+            idField.style.color = "red";
+        }
+
+        if (firstVal === "") {
+            missingFields.push("FirstName");
+            document.getElementById("firstNameError").innerHTML = "Please Enter a First Name";
+            firstField.style.color = "red";
+        }
+
+        if (lastVal === "") {
+            missingFields.push("LastName");
+            document.getElementById("lastNameError").innerHTML = "Please Enter a Last Name";
+            lastField.style.color = "red";
+        }
+
+        // if any are missing, alert once with all missing fields
+        if (missingFields.length > 0) {
+            var message = "You forgot to fill in the following field(s): ";
+            // loop through array to build message
+            for (var i = 0; i < missingFields.length; i++) {
+                if (i > 0) {
+                    message += ", ";
+                }
+                message += missingFields[i];
+            }
+            alert(message);
+            // clear previous successful output
+            document.getElementById("resultBox").innerHTML = "";
+            return;
+        }
+
+        // no errors: display results below form (only last entered values)
+        var resultDiv = document.getElementById("resultBox");
+        resultDiv.innerHTML =
+            "<p>UserID: " + idVal + "</p>" +
+            "<p>First Name: " + firstVal + "</p>" +
+            "<p>Last Name: " + lastVal + "</p>";
+
+        // clear the form fields after successful display
+        idField.value = "";
+        firstField.value = "";
+        lastField.value = "";
+
+        // reset input text color
+        idField.style.color = "black";
+        firstField.style.color = "black";
+        lastField.style.color = "black";
+    }
+</script>
+
+</body>
+</html>
