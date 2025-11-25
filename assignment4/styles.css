@@ -1,0 +1,317 @@
+:root {
+    --bg-color: #f5f7ff;
+    --card-color: #3f7bff;
+    --accent-color: #ffb347;
+    --text-color: #1b1b33;
+    --border-radius-lg: 18px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body.page-wrapper {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.main-header h1 {
+    margin: 0 0 0.5rem;
+    font-size: 1.9rem;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.nav-link {
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: white;
+    color: #334;
+    font-size: 0.9rem;
+}
+
+.nav-link.active {
+    background: var(--card-color);
+    color: white;
+}
+
+.content {
+    padding: 0 1.5rem 2rem;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: 1.3rem 1.4rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.btn-primary,
+.btn-secondary {
+    border-radius: 999px;
+    padding: 0.55rem 1.3rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: var(--card-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--card-color);
+    border: 1px solid var(--card-color);
+}
+
+.number-input {
+    width: 120px;
+    padding: 0.45rem 0.6rem;
+    border-radius: 10px;
+    border: 1px solid #d0d3e3;
+    font-size: 1rem;
+}
+
+.game-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    margin-top: 0.7rem;
+}
+
+.feedback {
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+}
+
+.feedback-info {
+    color: #334;
+}
+
+.feedback-success {
+    color: #1c8b3f;
+}
+
+.feedback-error {
+    color: #cc0033;
+}
+
+.game-info {
+    margin-top: 0.6rem;
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+}
+
+.footer {
+    padding: 0.8rem 1.5rem 1.4rem;
+    font-size: 0.85rem;
+    color: #666a80;
+}
+
+/* Part B layout */
+.setup-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 800px) {
+    .setup-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.setup-column h3 {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.setup-column label {
+    display: block;
+    margin-top: 0.35rem;
+    margin-bottom: 0.15rem;
+    font-size: 0.9rem;
+}
+
+.setup-column select,
+.theme-row input[type="color"] {
+    width: 100%;
+    padding: 0.45rem 0.5rem;
+    border-radius: 10px;
+    border: 1px solid #d0d3e3;
+    font-size: 0.9rem;
+}
+
+.theme-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.small-text {
+    font-size: 0.85rem;
+    color: #555a75;
+}
+
+.info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    font-size: 0.95rem;
+}
+
+/* Memory game board */
+.game-board {
+    display: grid;
+    gap: 0.75rem;
+    justify-items: stretch;
+    margin-top: 0.8rem;
+}
+
+.memory-card {
+    position: relative;
+    padding-top: 100%;
+    border-radius: 16px;
+    background: var(--card-color);
+    cursor: pointer;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.memory-card.matched {
+    box-shadow: 0 0 0 3px var(--accent-color) inset;
+    cursor: default;
+}
+
+.card-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background: #000;
+}
+
+.card-front img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.card-back {
+    background: var(--card-color);
+    color: white;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+/* Simple flip behaviour controlled by classes */
+.memory-card.show-front .card-front {
+    display: flex;
+}
+
+.memory-card.show-front .card-back {
+    display: none;
+}
+
+.memory-card:not(.show-front) .card-front {
+    display: none;
+}
+
+.memory-card:not(.show-front) .card-back {
+    display: flex;
+}
+
+/* During play, .flipped shows front, otherwise back */
+.memory-card.flipped .card-front {
+    display: flex;
+}
+
+.memory-card.flipped .card-back {
+    display: none;
+}
+
+.memory-card:not(.flipped):not(.show-front) .card-front {
+    display: none;
+}
+
+.memory-card:not(.flipped):not(.show-front) .card-back {
+    display: flex;
+}
+
+/* Leaderboard */
+.leaderboard-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0 0;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.35rem 0.5rem;
+    border-radius: 10px;
+    background: rgba(63, 123, 255, 0.06);
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.leaderboard-item .rank {
+    font-weight: 600;
+    width: 1.5rem;
+}
+
+.leaderboard-name {
+    flex: 1;
+    padding-left: 0.4rem;
+}
+
+.leaderboard-score {
+    font-weight: 700;
+    min-width: 3rem;
+    text-align: right;
+}

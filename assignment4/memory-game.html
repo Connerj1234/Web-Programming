@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Part B – Memory Matching Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-wrapper">
+<header class="main-header">
+    <h1>Part B – Memory Matching Game</h1>
+    <nav class="nav-links">
+        <a href="guessing-game.html" class="nav-link">Guessing Game (Part A)</a>
+        <a href="memory-game.html" class="nav-link active">Memory Game</a>
+    </nav>
+</header>
+
+<main class="content">
+    <!-- Setup panel -->
+    <section class="card">
+        <h2>Memory Game Setup</h2>
+
+        <div class="setup-grid">
+            <div class="setup-column">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy (8 seconds memorize)</option>
+                    <option value="medium">Medium (5 seconds memorize)</option>
+                    <option value="hard">Hard (3 seconds memorize)</option>
+                </select>
+
+                <label for="pair-count">Number of Pairs:</label>
+                <select id="pair-count">
+                    <option value="8">8 pairs (120 seconds)</option>
+                    <option value="10">10 pairs (150 seconds)</option>
+                    <option value="12">12 pairs (180 seconds)</option>
+                </select>
+
+                <button id="start-game" class="btn-primary">Start Game</button>
+            </div>
+
+            <div class="setup-column">
+                <h3>Custom Theme</h3>
+                <div class="theme-row">
+                    <label for="bg-color">Background:</label>
+                    <input type="color" id="bg-color" value="#f5f7ff">
+                </div>
+                <div class="theme-row">
+                    <label for="card-color">Card Color:</label>
+                    <input type="color" id="card-color" value="#3f7bff">
+                </div>
+                <div class="theme-row">
+                    <label for="accent-color">Accent Color:</label>
+                    <input type="color" id="accent-color" value="#ffb347">
+                </div>
+            </div>
+
+            <div class="setup-column">
+                <h3>Custom Images</h3>
+                <p class="small-text">
+                    Upload image files to use for the cards. If you upload at least as many images as the number of pairs,
+                    the game will use your images. Otherwise it will use built in placeholders.
+                </p>
+                <input type="file" id="image-upload" accept="image/*" multiple>
+                <p id="image-upload-status" class="small-text"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info row (timer, score, status) -->
+    <section class="card">
+        <div class="info-row">
+            <p>Memorization time: <span id="memorize-time">0s</span></p>
+            <p>Game time: <span id="game-time">0s</span></p>
+            <p>Score: <span id="score">0</span></p>
+        </div>
+        <p id="status-message" class="feedback"></p>
+    </section>
+
+    <!-- Game board -->
+    <section class="card">
+        <h2>Game Board</h2>
+        <div id="game-board" class="game-board">
+            <!-- cards injected here -->
+        </div>
+    </section>
+
+    <!-- Leaderboard -->
+    <section class="card">
+        <h2>Leaderboard (Top 5 Scores)</h2>
+        <ol id="leaderboard-list" class="leaderboard-list">
+            <!-- scores injected here -->
+        </ol>
+        <button id="clear-leaderboard" class="btn-secondary">Clear Leaderboard</button>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>Scores are stored locally in your browser using localStorage.</p>
+</footer>
+
+<script src="memory-game.js"></script>
+</body>
+</html>

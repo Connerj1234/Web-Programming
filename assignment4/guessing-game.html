@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Part A – Number Guessing Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-wrapper">
+<header class="main-header">
+    <h1>Part A – Number Guessing Game</h1>
+    <nav class="nav-links">
+        <a href="guessing-game.html" class="nav-link active">Guessing Game</a>
+        <a href="memory-game.html" class="nav-link">Memory Matching Game (Part B)</a>
+    </nav>
+</header>
+
+<main class="content">
+    <section class="card">
+        <h2>Number Guessing Game</h2>
+        <p>
+            Guess the secret number between 1 and 100. You have a limited number of guesses
+            before the secret is revealed.
+        </p>
+
+        <div class="game-row">
+            <label for="guess-input">Guess a number between 1 and 100:</label>
+            <input id="guess-input" type="number" min="1" max="100" class="number-input">
+            <button id="guess-button" class="btn-primary">Guess</button>
+        </div>
+
+        <p id="feedback" class="feedback"></p>
+
+        <div class="game-info">
+            <p>Guesses remaining: <span id="guesses-remaining">10</span></p>
+            <p>Round time: <span id="round-timer">0s</span></p>
+        </div>
+
+        <button id="new-game-button" class="btn-secondary">New Game</button>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>Part A entry page. Use the navigation above to open Part B.</p>
+</footer>
+
+<audio id="sound-correct" src="ding-sound-effect_1.mp3" preload="auto"></audio>
+<audio id="sound-wrong" src="wrong.swf.mp3" preload="auto"></audio>
+
+<script src="guessing-game.js"></script>
+</body>
+</html>
