@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Web-Programming/classwork08/my-app/static/css/main.fab8be0d.css",
-    "main.js": "/Web-Programming/classwork08/my-app/static/js/main.cf292050.js",
-    "static/js/453.117b0875.chunk.js": "/Web-Programming/classwork08/my-app/static/js/453.117b0875.chunk.js",
-    "index.html": "/Web-Programming/classwork08/my-app/index.html",
-    "main.fab8be0d.css.map": "/Web-Programming/classwork08/my-app/static/css/main.fab8be0d.css.map",
-    "main.cf292050.js.map": "/Web-Programming/classwork08/my-app/static/js/main.cf292050.js.map",
-    "453.117b0875.chunk.js.map": "/Web-Programming/classwork08/my-app/static/js/453.117b0875.chunk.js.map"
+    "main.css": "/Web-Programming/static/css/main.fab8be0d.css",
+    "main.js": "/Web-Programming/static/js/main.7b724f43.js",
+    "static/js/453.117b0875.chunk.js": "/Web-Programming/static/js/453.117b0875.chunk.js",
+    "index.html": "/Web-Programming/index.html",
+    "main.fab8be0d.css.map": "/Web-Programming/static/css/main.fab8be0d.css.map",
+    "main.7b724f43.js.map": "/Web-Programming/static/js/main.7b724f43.js.map",
+    "453.117b0875.chunk.js.map": "/Web-Programming/static/js/453.117b0875.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fab8be0d.css",
-    "static/js/main.cf292050.js"
+    "static/js/main.7b724f43.js"
   ]
 }
